@@ -1,5 +1,7 @@
 import { createLocation$ } from "@zambezi/caballo-vivo";
-import { displayPeople$, displayShips$, displayTodo$ } from "./intents";
+import { displayTodo$ } from "./intents/displayTodo$";
+import { displayShips$ } from "./intents/displayShips$";
+import { displayPeople$ } from "./intents/displayPeople$";
 
 export default createLocation$({
   '/people': displayPeople$.next.bind(displayPeople$),

@@ -2,9 +2,10 @@ import { createStore$ } from "@zambezi/caballo-vivo";
 import { Map } from "immutable";
 import { map, merge } from "rxjs";
 import location$ from "./location/location";
-import people$ from "./people";
-import ships$ from './ships';
+import people$ from "./location/reducers/people";
+import ships$ from './location/reducers/ships';
 import todo$ from "./todo";
+import todo2$ from './location/reducers/todo';
 import toggleMenu$ from "./toggle-menu";
 
 export const store = merge(
@@ -12,5 +13,6 @@ export const store = merge(
   people$,
   ships$,
   toggleMenu$,
-  todo$
+  todo$,
+  todo2$,
 ).pipe(createStore$(new Map()));
