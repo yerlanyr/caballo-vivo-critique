@@ -1,12 +1,10 @@
-import { cook, stow } from "@zambezi/caballo-vivo";
-import { map, merge, startWith } from "rxjs";
-import { setFilterTodo$ } from "../intents/setFilterTodo$";
-import { addTodo$ } from '../intents/addTodo$'
-import { toggleTodo$ } from '../intents/toggleTodo$'
+import { cook } from "@zambezi/caballo-vivo";
+import { map, merge } from "rxjs";
+import { addTodo$ } from '../intents/addTodo$';
+import { toggleTodo$ } from '../intents/toggleTodo$';
 
 export default merge(
   addTodo$.pipe(map((state) => state)),
-  setFilterTodo$.pipe(startWith('all'), stow('filter')),
   toggleTodo$.pipe(
     cook((state, index) =>
       state.update("todo", (todos) =>

@@ -1,18 +1,19 @@
 import { useStateContext } from "@zambezi/caballo-vivo";
-import { setFilterTodo$ } from "../sync-state/intents/setFilterTodo$";
+import { filterTodo } from "../atomics/filterTodo";
+import { useSubscription } from "../utils/useSubscription";
 import { toggleTodo$ } from "../sync-state/intents/toggleTodo$";
 import { TodoView } from "../view-components/TodoView";
 
 export default function Todo() {
   const state = useStateContext();
   const todos = state.get("todo", []);
-  const filter = state.get("filter");
+  const filter = useSubscription(filterTodo);
 
   return (
     <TodoView
       filter={filter}
       todos={todos}
-      onFilterChange={setFilterTodo$.next.bind(setFilterTodo$)}
+      onFilterChange={filterTodo.next.bind(filterTodo)}
       onTodoClick={toggleTodo$.next.bind(toggleTodo$)}
     />
   );
