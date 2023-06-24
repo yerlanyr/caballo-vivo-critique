@@ -1,10 +1,10 @@
 import { fetchTodos$ } from "../services";
 import { displayTodo$ } from "../intents/displayTodo$";
-import { displayReducer$ } from "./displayReducer$";
+import createAsyncReducer$ from "../../utils/createAsyncReducer$";
 
-export default displayReducer$({
-  displayIntent$: displayTodo$,
-  fetchObservable$: fetchTodos$,
+export default createAsyncReducer$({
+  intent$: displayTodo$,
+  service$: fetchTodos$,
   keyOrPath: 'todo',
   href: '/todo'
 })
