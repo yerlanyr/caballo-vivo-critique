@@ -1,6 +1,6 @@
-import { useStateContext } from "@zambezi/caballo-vivo";
 import MenuView from "../view-components/MenuView";
-import { menuToggle$ } from "../sync-state/intents/menuToggle$";
+import { menuToggle$ } from "../atomics/menuToggle";
+import { useSubscription } from "../utils/useSubscription";
 
 const links = [
   { to: "/people", title: "People" },
@@ -9,12 +9,12 @@ const links = [
 ];
 
 export function Menu() {
-  const state = useStateContext();
+  const show = useSubscription(menuToggle$)
   return (
     <MenuView
       links={links}
-      toggleMenu={menuToggle$.next.bind(menuToggle$)}
-      show={state.get("menuToggle", true)}
+      toggleMenu={() => menuToggle$.next(!show)}
+      show={show}
     />
   );
 }

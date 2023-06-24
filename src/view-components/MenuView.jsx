@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 export default function MenuView({toggleMenu, show, links}) {
-  return <>
+  return <div>
     <button onClick={toggleMenu}>Toggle menu</button>
     {show && (
       <nav>
@@ -10,5 +10,5 @@ export default function MenuView({toggleMenu, show, links}) {
         </ul>
       </nav>
     )}
-  </>;
+  </div>;
 }
