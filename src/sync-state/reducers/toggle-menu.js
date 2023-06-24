@@ -1,4 +1,4 @@
-import { menuToggle$ } from "./intents";
+import { menuToggle$ } from "../intents/menuToggle$";
 import { stow } from '@zambezi/caballo-vivo'
 import { scan } from 'rxjs'
 

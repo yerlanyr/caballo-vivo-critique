@@ -1,5 +1,6 @@
 import { useStateContext } from "@zambezi/caballo-vivo";
-import { setFilterTodo$, toggleTodo$ } from "../intents";
+import { setFilterTodo$ } from "../sync-state/intents/setFilterTodo$";
+import { toggleTodo$ } from "../sync-state/intents/toggleTodo$";
 import { TodoView } from "../view-components/TodoView";
 
 export default function Todo() {
