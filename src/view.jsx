@@ -4,6 +4,7 @@ import ErrorBoundary from "./ErrorBoundary";
 import { menuToggle$ } from "./intents";
 import People from "./people/People";
 import Ships from "./ships/Ships";
+import Todo from "./todo/Todo";
 
 export default function toView(state) {
   if (state.get("error", false)) {
@@ -25,6 +26,9 @@ export default function toView(state) {
             <li>
               <Link to="/ships">Ships</Link>
             </li>
+            <li>
+              <Link to="/todo">Todo</Link>
+            </li>
           </ul>
         </nav>
       )}
@@ -44,6 +48,13 @@ export default function toView(state) {
             fallback={<div>Something bad happened to ships {":("}</div>}
           >
             <Ships />
+          </ErrorBoundary>
+        </Route>
+        <Route path="/todo">
+          <ErrorBoundary
+            fallback={<div>Something bad happened to todos {":("}</div>}
+          >
+            <Todo />
           </ErrorBoundary>
         </Route>
       </Switch>
