@@ -1,0 +1,25 @@
+{
+  "name": "caballo-vivo-critique",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "vite",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vitejs/plugin-react": "^4.0.1",
+    "@zambezi/caballo-vivo": "^1.3.0",
+    "immutable": "^4.3.0",
+    "ramda": "^0.29.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rxjs": "^7.8.1"
+  },
+  "devDependencies": {
+    "vite": "^4.3.9"
+  }
+}
