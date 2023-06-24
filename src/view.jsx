@@ -1,6 +1,7 @@
 import { history } from "@zambezi/caballo-vivo";
 import { Router, Route, Link, Switch } from "react-router-dom";
 import ErrorBoundary from "./ErrorBoundary";
+import { menuToggle$ } from "./intents";
 import People from "./people/People";
 import Ships from "./ships/Ships";
 
@@ -14,23 +15,34 @@ export default function toView(state) {
   console.log("render");
   return (
     <Router history={history}>
-      <nav>
-        <ul>
-        <li><Link to="/people">People</Link></li>
-        <li><Link to="/ships">Ships</Link></li>
-        </ul>
-      </nav>
+      <button onClick={menuToggle$.next.bind(menuToggle$)}>Toggle menu</button>
+      {state.get("menuToggle", true) && (
+        <nav>
+          <ul>
+            <li>
+              <Link to="/people">People</Link>
+            </li>
+            <li>
+              <Link to="/ships">Ships</Link>
+            </li>
+          </ul>
+        </nav>
+      )}
       <Switch>
         <Route exact path="/">
           Hi there
         </Route>
         <Route path="/people">
-          <ErrorBoundary fallback={<div>Something bad happened to people {':('}</div>}>
+          <ErrorBoundary
+            fallback={<div>Something bad happened to people {":("}</div>}
+          >
             <People />
           </ErrorBoundary>
         </Route>
         <Route path="/ships">
-          <ErrorBoundary fallback={<div>Something bad happened to ships {':('}</div>}>
+          <ErrorBoundary
+            fallback={<div>Something bad happened to ships {":("}</div>}
+          >
             <Ships />
           </ErrorBoundary>
         </Route>
