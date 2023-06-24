@@ -6,12 +6,12 @@ export function TodoView({filter, onFilterChange, todos, onTodoClick}) {
         <em>Filters:</em>
       </p>
       <ul>
-        <li onClick={() => onFilterChange("all")}>All</li>
-        <li onClick={() => onFilterChange("completed")}>Completed</li>
-        <li onClick={() => onFilterChange("not-completed")}>
+        <li onClick={() => onFilterChange("all")} style={{textDecoration: filter === 'all' ? 'underline' : 'none'}}>All</li>
+        <li onClick={() => onFilterChange("completed")}  style={{textDecoration: filter === 'completed' ? 'underline' : 'none'}}>Completed</li>
+        <li onClick={() => onFilterChange("not-completed")}  style={{textDecoration: filter === 'not-completed' ? 'underline' : 'none'}}>
           Not completed
         </li>
-      </ul> 
+      </ul>
       <ul>
         {todos.map((todo, i) => (
           <li
