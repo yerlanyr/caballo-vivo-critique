@@ -1,7 +1,7 @@
 import { createStore$ } from "@zambezi/caballo-vivo";
 import { Map } from "immutable";
 import { map, merge } from "rxjs";
-import location$ from "./location";
+import location$ from "./location/location";
 import people$ from "./people";
 import ships$ from './ships';
 import todo$ from "./todo";

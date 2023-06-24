@@ -1,4 +1,5 @@
-import { addTodo$, displayTodo$, setFilterTodo$, toggleTodo$ } from "./intents";
+import { addTodo$, setFilterTodo$, toggleTodo$ } from "./intents";
+import { displayTodo$ } from './location/intents'
 import { catchError, concat, map, merge, of, startWith, switchMap } from "rxjs";
 import { cook, createNavigateTo$, stow } from "@zambezi/caballo-vivo";
 import { fetchTodos$ } from "./services";

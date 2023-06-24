@@ -1,6 +1,6 @@
 import { createNavigateTo$, stow } from "@zambezi/caballo-vivo";
 import { catchError, concat, map, of, switchMap, tap } from "rxjs";
-import { displayPeople$ } from "./intents";
+import { displayPeople$ } from "./location/intents";
 import { fetchPeoplePaginated$ } from "./services";
 
 export default displayPeople$.pipe(

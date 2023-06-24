@@ -1,6 +1,6 @@
 import { createNavigateTo$, stow } from "@zambezi/caballo-vivo";
 import { catchError, concat, map, of, switchMap, tap } from "rxjs";
-import { displayShips$ } from "./intents";
+import { displayShips$ } from "./location/intents";
 import { fetchShipsPaginated$ } from "./services";
 
 export default displayShips$.pipe(
