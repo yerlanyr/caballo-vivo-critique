@@ -1,12 +1,4 @@
-import { useStateContext } from "@zambezi/caballo-vivo";
-import { useDebugValue } from "react";
-import { setFilterTodo$, toggleTodo$ } from "../intents";
-
-export default function Todo() {
-  const state = useStateContext();
-  const todos = state.get("todo", []);
-  const filter = state.get("filter");
-  useDebugValue(filter)
+export function TodoView({filter, onFilterChange, todos, onTodoClick}) {
   return (
     <div>
       <h1>Todos</h1>
@@ -14,17 +6,17 @@ export default function Todo() {
         <em>Filters:</em>
       </p>
       <ul>
-        <li onClick={() => setFilterTodo$.next("all")}>All</li>
-        <li onClick={() => setFilterTodo$.next("completed")}>Completed</li>
-        <li onClick={() => setFilterTodo$.next("not-completed")}>
+        <li onClick={() => onFilterChange("all")}>All</li>
+        <li onClick={() => onFilterChange("completed")}>Completed</li>
+        <li onClick={() => onFilterChange("not-completed")}>
           Not completed
         </li>
-      </ul>
+      </ul> 
       <ul>
         {todos.map((todo, i) => (
           <li
             key={i}
-            onClick={() => toggleTodo$.next(i)}
+            onClick={() => onTodoClick(i)}
             style={{
               textDecoration: todo.crossedOut ? "line-through" : "none",
               display:
@@ -38,5 +30,5 @@ export default function Todo() {
         ))}
       </ul>
     </div>
-  );
+  )
 }

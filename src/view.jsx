@@ -1,10 +1,10 @@
 import { history } from "@zambezi/caballo-vivo";
-import { Router, Route, Link, Switch } from "react-router-dom";
+import { Link, Route, Router, Switch } from "react-router-dom";
 import ErrorBoundary from "./ErrorBoundary";
 import { menuToggle$ } from "./intents";
-import People from "./people/People";
-import Ships from "./ships/Ships";
-import Todo from "./todo/Todo";
+import People from "./smart-components/People";
+import Ships from "./smart-components/Ships";
+import Todo from "./smart-components/Todo";
 
 export default function toView(state) {
   if (state.get("error", false)) {
