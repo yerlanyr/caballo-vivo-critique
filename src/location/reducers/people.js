@@ -1,4 +1,4 @@
-import { fetchPeoplePaginated$ } from "../../services";
+import { fetchPeoplePaginated$ } from "../services";
 import { displayPeople$ } from "../intents/displayPeople$";
 import { displayReducer$ } from "./displayReducer$";
 

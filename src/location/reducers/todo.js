@@ -1,4 +1,4 @@
-import { fetchTodos$ } from "../../services";
+import { fetchTodos$ } from "../services";
 import { displayTodo$ } from "../intents/displayTodo$";
 import { displayReducer$ } from "./displayReducer$";
 
