@@ -1,6 +1,6 @@
-import MenuView from "../view-components/MenuView";
+import { useAtom } from "jotai";
 import { menuToggle$ } from "../atomics/menuToggle";
-import { useSubscription } from "../utils/useSubscription";
+import MenuView from "../view-components/MenuView";
 
 const links = [
   { to: "/people", title: "People" },
@@ -10,11 +10,11 @@ const links = [
 ];
 
 export function Menu() {
-  const show = useSubscription(menuToggle$)
+  const [show, setShow] = useAtom(menuToggle$)
   return (
     <MenuView
       links={links}
-      toggleMenu={() => menuToggle$.next(!show)}
+      toggleMenu={() => setShow(!show)}
       show={show}
     />
   );

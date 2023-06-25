@@ -1,23 +1,9 @@
-import { createRoot } from 'react-dom/client'
-import { createStateContext } from '@zambezi/caballo-vivo'
-import toView from './view'
-import { store } from './store'
-import { useSubscription } from './utils/useSubscription'
-import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
-import { Suspense } from 'react'
+import { createRoot } from "react-dom/client";
+import { QueryClient } from "react-query";
+import { Router } from "react-router-dom";
+import { App } from "./App";
 
-const queryClient = new QueryClient()
-const root = createRoot(document.getElementById('root'))
-const render = root.render.bind(root)
-const contextedToView = createStateContext(toView)
+const root = createRoot(document.getElementById("root"));
+const render = root.render.bind(root);
 
-const App = () => {
-  const state = useSubscription(store, new Map())
-  return <QueryClientProvider client={queryClient}>
-    <Suspense fallback={<div>Loading...</div>}>
-    {contextedToView(state)}
-    </Suspense>
-  </QueryClientProvider>
-}
-
-render(<App/>)
+render(<App />);

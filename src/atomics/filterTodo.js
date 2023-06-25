@@ -1,3 +1,3 @@
-import { BehaviorSubject } from "rxjs";
+import { atom } from "jotai";
 
-export const filterTodo = new BehaviorSubject('all')
+export const filterTodo = atom('all')

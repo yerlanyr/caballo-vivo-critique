@@ -1,3 +1,3 @@
-import { BehaviorSubject } from "rxjs";
+import { atom } from "jotai";
 
-export const menuToggle$ = new BehaviorSubject(true);
+export const menuToggle$ = atom(true)
