@@ -5,12 +5,12 @@ import ShipsView from "../view-components/ShipsList";
 
 export default function Ships() {
   const {
+    isLoading,
     data: ships,
   } = useQuery({
     queryKey: ["ships"],
     queryFn: () => shipsFetcher(1),
-    suspense: true,
   });
-
+  if(isLoading) return <div>Loading ships...</div>
   return <ShipsView list={ships.results} />;
 }
