@@ -6,6 +6,7 @@ const links = [
   { to: "/people", title: "People" },
   { to: "/ships", title: "Ships" },
   { to: "/todo", title: "Todo" },
+  { to: '/people-and-ships', title: 'People and ships'}
 ];
 
 export function Menu() {

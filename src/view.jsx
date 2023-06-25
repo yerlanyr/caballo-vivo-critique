@@ -35,6 +35,13 @@ export default function toView(state) {
             <Ships />
           </ErrorBoundary>
         </Route>
+        <Route path="/people-and-ships">
+          <ErrorBoundary
+            fallback={<div>Something bad happened to people {":("}</div>}
+          >
+            <People />
+          </ErrorBoundary>
+        </Route>
         <Route path="/todo">
           <ErrorBoundary
             fallback={<div>Something bad happened to todos {":("}</div>}
