@@ -5,6 +5,7 @@ import People from "./smart-components/People";
 import Ships from "./smart-components/Ships";
 import Todo from "./smart-components/Todo";
 import { Menu } from "./smart-components/Menu";
+import PeopleAndShips from "./smart-components/PeopleAndShips";
 
 export default function toView(state) {
   if (state.get("error", false)) {
@@ -21,7 +22,7 @@ export default function toView(state) {
         <Route exact path="/">
           Hi there
         </Route>
-        <Route path="/people">
+        <Route exact path="/people">
           <ErrorBoundary
             fallback={<div>Something bad happened to people {":("}</div>}
           >
@@ -37,9 +38,9 @@ export default function toView(state) {
         </Route>
         <Route path="/people-and-ships">
           <ErrorBoundary
-            fallback={<div>Something bad happened to people {":("}</div>}
+            fallback={<div>Something bad happened to people and ships {":("}</div>}
           >
-            <People />
+            <PeopleAndShips />
           </ErrorBoundary>
         </Route>
         <Route path="/todo">

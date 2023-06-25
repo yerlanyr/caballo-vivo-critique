@@ -1,0 +1,1 @@
+export const peopleFetcher = (page) => fetch(`https://swapi.dev/api/people/?page=${page}`).then(res => res.json())

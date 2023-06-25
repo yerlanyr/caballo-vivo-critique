@@ -1,0 +1,1 @@
+export const shipsFetcher = (page) => fetch(`https://swapi.dev/api/starships/?page=${page}`).then(res => res.json())
